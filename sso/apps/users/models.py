@@ -8,10 +8,10 @@ from model_utils import Choices
 
 class User(AbstractUser):
     STATUS = Choices(
-        (0, _('user')),
-        (1, _('expert')),
-        (2, _('moderator')),
-        (3, _('admin')),
+        (0, 'user', _('user')),
+        (1, 'expert', _('expert')),
+        (2, 'moderator', _('moderator')),
+        (3, 'admin', _('admin')),
     )
     status = models.IntegerField(
         choices=STATUS,

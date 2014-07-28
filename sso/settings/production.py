@@ -1,7 +1,7 @@
 """Production settings and globals."""
 from __future__ import absolute_import
 
-import secret
+from .secret import SECRET_KEY
 
 # from os import environ
 from os.path import join, normpath
@@ -10,12 +10,11 @@ from .base import *
 from .generated import *
 # Normally you should not import ANYTHING from Django directly
 # into your settings, but ImproperlyConfigured is an exception.
-from django.core.exceptions import ImproperlyConfigured
+# from django.core.exceptions import ImproperlyConfigured
 
-
-SECRET_KEY = getattr(secret, 'SECRET_KEY')
-if not SECRET_KEY:
-    raise ImproperlyConfigured('No secret key')
+# SECRET_KEY = getattr(secret, 'SECRET_KEY')
+# if not SECRET_KEY:
+#     raise ImproperlyConfigured('No secret key')
 
 # def get_env_setting(setting):
 #     """ Get the environment setting or return exception """
