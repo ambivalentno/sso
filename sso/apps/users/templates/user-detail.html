@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block page_title %}Detail of User #{{object.id}}{% endblock page_title %}
+
+{% block content %}
+
+
+<table class="table">
+    <tr>
+        <td>Title</td>
+        <td>{{object.title}}</td>
+    </tr>
+    <tr>
+        <td>Slug</td>
+        <td>{{object.slug}}</td>
+    </tr>
+    <tr>
+        <td>Created at</td>
+        <td>{{object.created_at}}</td>
+    </tr>
+</table>
+
+{% endblock content %}

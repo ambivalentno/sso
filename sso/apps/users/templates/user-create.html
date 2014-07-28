@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block page_title %}Create User object{% endblock page_title %}
+
+{% block content %}
+
+
+
+<form method="post">
+<table class="table">
+    {{ form.as_table }}
+    {% csrf_token %}
+</table>
+<input type="submit" value="Create">
+</form>
+
+{% endblock content %}

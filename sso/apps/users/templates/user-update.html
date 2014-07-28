@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block page_title %}Edit User #{{object.id}}{% endblock page_title %}
+
+{% block content %}
+
+<a href="{% url "user-detail" object.pk %}">Detail of User</a>
+
+<form methd="post">
+<table class="table">
+    {{ form.as_table }}
+    {% csrf_token %}
+</table>
+    <input type="submit" value="Edit">
+</form>
+
+{% endblock content %}
