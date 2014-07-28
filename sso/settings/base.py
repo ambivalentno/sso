@@ -112,7 +112,8 @@ STATICFILES_FINDERS = (
 ########## SECRET CONFIGURATION
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#secret-key
 # Note: This key should only be used for development and testing.
-SECRET_KEY = r"snt2b_x$i5)mx-c*f05n0t0hswy-&(o4=u6&^3mj3(lv9_1*0*"
+SECRET_KEY = "snt2b_x$i5)mx-c*f05n0t0hswy-&(o4=u6&^3mj3(lv9_1*0*"
+
 ########## END SECRET CONFIGURATION
 
 
@@ -263,4 +264,3 @@ INSTALLED_APPS += (
 # Don't need to use South when setting up a test database.
 SOUTH_TESTS_MIGRATE = False
 ########## END SOUTH CONFIGURATION
-INSTALLED_APPS += ('users', )

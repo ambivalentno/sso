@@ -1,21 +1,32 @@
-from django.db import models
-from django.contrib.auth.models import User
+from django.contrib.auth.models import AbstractUser
 from django.core.urlresolvers import reverse
+from django.db import models
+from django.utils.translation import ugettext as _
+
+from model_utils import Choices
 
 
-class User(models.Model):
+class User(AbstractUser):
+    STATUS = Choices(
+        (0, _('user')),
+        (1, _('expert')),
+        (2, _('moderator')),
+        (3, _('admin')),
+    )
+    status = models.IntegerField(
+        choices=STATUS,
+        default=STATUS.user,
+    )
 
-    title = models.CharField(
-        max_length=150)
-    slug = models.SlugField(
-        max_length=75)
     created_at = models.DateField(
-        auto_now_add=True)
+        auto_now_add=True,
+    )
+    last_activity = models.DateField(
+        auto_now=True,
+    )
 
     def __unicode__(self):
-        if self.title:
-            return self.title[:50]
-        return " #%s" % self.id
+        return "User #%s" % self.id
 
     def get_absolute_url(self):
         return reverse('user-detail', args=[str(self.id)])
